@@ -9,7 +9,7 @@ export const loginUser = (loginInfo) => dispatch => {
             payload: {
                 login_status:true,
                 permission:USER_FILTERS.PERMISSIONS.ADMIN,
-                userName: 'Lucas Silva'
+                userName: 'Amanda'
             }
         });
     }

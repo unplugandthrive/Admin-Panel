@@ -1,19 +1,33 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default class SideMenu extends Component {
+class SideMenu extends Component {
+    constructor(props){
+        super(props);
+    }
     render() {
-        return (
-            <div style={{ height: "85vh" }} className="col s2 grey darken-2">
-                <ul id="slide-out" class="side-nav fixed">
-                    <li><Link to="/home"><a class="col s12 waves-effect waves-light btn-small grey darken-1 left-align">Home</a></Link></li>
-                    <li><Link to="/home"><a class="col s12 waves-effect waves-light btn-small grey darken-1 left-align">Employees</a></Link></li>
-                    <li><Link to="/home"><a class="col s12 waves-effect waves-light btn-small grey darken-1 left-align">Customers</a></Link></li>
-                    <li><Link to="/home"><a class="col s12 waves-effect waves-light btn-small grey darken-1 left-align">Services</a></Link></li>
-                    <li><Link to="/home"><a class="col s12 waves-effect waves-light btn-small grey darken-1 left-align">Service Orders</a></Link></li>
-                    <li><Link to="/home"><a class="col s12 waves-effect waves-light btn-small grey darken-1 left-align">Reports</a></Link></li>
-                </ul>
-            </div>
-        )
+        if(this.props.visibility) {
+            return (
+                <div style={{ height: "85vh" }} className={`section container col s2 teal darken-4`}>
+                    <ul id="slide-out" class="side-nav">
+                        <li><Link to="/home"><a class="col s12 waves-effect waves-light btn-small green darken-1 left-align">Home</a></Link></li>
+                        <li><Link to="/home"><a class="col s12 waves-effect waves-light btn-small teal darken-1 left-align">Employees</a></Link></li>
+                        <li><Link to="/home"><a class="col s12 waves-effect waves-light btn-small teal darken-1 left-align">Customers</a></Link></li>
+                        <li><Link to="/home"><a class="col s12 waves-effect waves-light btn-small teal darken-1 left-align">Services</a></Link></li>
+                        <li><Link to="/home"><a class="col s12 waves-effect waves-light btn-small teal darken-1 left-align">Service Orders</a></Link></li>
+                        <li><Link to="/home"><a class="col s12 waves-effect waves-light btn-small teal darken-1 left-align">Reports</a></Link></li>
+                    </ul>
+                </div>
+            )
+        }
+
+        return(<div></div>);
     }
 }
+
+const mapStateToProps = (state) => ({
+    visibility:state.menu.sideMenuVisibility
+});
+
+export default connect(mapStateToProps, {})(SideMenu);

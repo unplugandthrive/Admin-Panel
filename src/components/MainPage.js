@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 
+import PropTypes from 'prop-types';
+
 import LoginForm from './LoginForm';
 import Home from './Home';
 
@@ -33,6 +35,11 @@ class MainPage extends Component {
             </div>
         )
     }
+}
+
+MainPage.propTypes = {
+    login_status:PropTypes.bool.isRequired,
+    userName:PropTypes.string.isRequired
 }
 
 const mapStateToProps = (state) => ({

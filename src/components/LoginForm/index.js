@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { PropTypes } from 'prop-types';
 
 import BlankLine from './BlankLine';
 
@@ -41,12 +42,10 @@ class LoginForm extends Component {
         // console.log('not redirecting');
         return (
             <div className="container col s6">
-                <BlankLine />
-                <BlankLine />
-                <BlankLine />
+                <BlankLine qty={10}/>
                 <div className="row">
-                    <div className="col s6 push-s3">
-                        <div className="z-depth-1 grey lighten-3 row">
+                    <div className="col s4 push-s4">
+                        <div className="z-depth-1 blue lighten-5 row">
                             <form onSubmit={this.handleSubmit} className="col s12">
                                 <div className="row">
                                     <div className="col s12"></div>
@@ -76,6 +75,10 @@ class LoginForm extends Component {
     }
 }
 
+LoginForm.propTypes = {
+    loginUser:PropTypes.func.isRequired
+}
 
 
-export default connect(null, {loginUser})(LoginForm);
+
+export default connect(null, { loginUser})(LoginForm);

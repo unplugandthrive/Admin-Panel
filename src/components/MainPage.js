@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 
 import LoginForm from './LoginForm';
 import Home from './Home';
+import EmpCreationForm from './employee/EmpCreationForm';
 
 import Header from './Header'
 import SideMenu from './SideMenu'
@@ -21,7 +22,8 @@ class MainPage extends Component {
                     <main>
                         <div className="row">
                             <SideMenu />
-                            <Route path="/" component={Home} />
+                            <Route exact path="/" component={Home} />
+                            <Route exact path="/employees/create" component={EmpCreationForm} />
                         </div>
                     </main>
                     <Footer />

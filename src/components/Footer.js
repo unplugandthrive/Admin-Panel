@@ -4,10 +4,10 @@ export default class Footer extends Component {
     render() {
         return (
             
-            <footer style={{bottom:"0", width:"100vw", position:'absolute'}} class="page-footer blue">
+            <footer style={{bottom:"0", width:"100vw", position:'absolute'}}  className="page-footer sticky blue">
                 
-                <div class="footer-copyright">
-                    <div class="container">
+                <div className="footer-copyright">
+                    <div className="container">
                         &copy; Stuff
                     </div>
                 </div>

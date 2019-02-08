@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
@@ -22,8 +22,10 @@ class MainPage extends Component {
                     <main>
                         <div className="row">
                             <SideMenu />
-                            <Route exact path="/" component={Home} />
-                            <Route exact path="/employees/create" component={EmpCreationForm} />
+                            <Switch>
+                                <Route exact path="/" component={Home} />
+                                <Route path="/employees/create" component={EmpCreationForm} />
+                            </Switch>
                         </div>
                     </main>
                     <Footer />
@@ -49,4 +51,4 @@ const mapStateToProps = (state) => ({
     userName: state.login.userName
 });
 
-export default connect(mapStateToProps, {})(MainPage);
+export default withRouter(connect(mapStateToProps, {})(MainPage));

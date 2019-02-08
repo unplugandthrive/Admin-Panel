@@ -1,7 +1,7 @@
 import { LOGIN_USER } from '../actions/types';
 
 const initialState = {
-    login_status:false,
+    login_status:true,
     permission:'',
     userName: ''
 };

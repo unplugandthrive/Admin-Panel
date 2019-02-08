@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import { createEmployee } from '../../../actions/createActions'
+
 class EmpCreationForm extends Component {
     constructor(props) {
         super(props);
@@ -13,7 +15,6 @@ class EmpCreationForm extends Component {
             saddr: '',
             postc: '',
             prvnc: '',
-            error: null,
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -171,4 +172,4 @@ const mapStateToProps = state => ({
     sideMenu: state.menu.sideMenuVisibility
 });
 
-export default connect(mapStateToProps, {})(EmpCreationForm);
+export default connect(mapStateToProps, { createEmployee })(EmpCreationForm);

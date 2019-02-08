@@ -39,7 +39,7 @@ class LoginForm extends Component {
             console.log('redirecting');
             return <Redirect to='/home' />
         }
-        // console.log('not redirecting');
+        console.log('state');
         return (
             <div className="container col s6">
                 <BlankLine qty={10}/>

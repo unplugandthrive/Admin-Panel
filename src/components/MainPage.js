@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
 import LoginForm from './LoginForm';
 import Home from './Home';
+import EmpCreationForm from './employee/EmpCreationForm';
 
 import Header from './Header'
 import SideMenu from './SideMenu'
@@ -21,7 +22,10 @@ class MainPage extends Component {
                     <main>
                         <div className="row">
                             <SideMenu />
-                            <Route path="/" component={Home} />
+                            <Switch>
+                                <Route exact path="/" component={Home} />
+                                <Route path="/employees/create" component={EmpCreationForm} />
+                            </Switch>
                         </div>
                     </main>
                     <Footer />
@@ -47,4 +51,4 @@ const mapStateToProps = (state) => ({
     userName: state.login.userName
 });
 
-export default connect(mapStateToProps, {})(MainPage);
+export default withRouter(connect(mapStateToProps, {})(MainPage));

@@ -5,7 +5,6 @@ const initialState = {
 };
 
 export default function(state = initialState, action) {
-    
     switch (action.type) {
         case CREATE_EMPLOYEE:
             console.log('POSTING EMPLOYEE TO DB')
@@ -14,5 +13,7 @@ export default function(state = initialState, action) {
                 ...state,
                 empID:state.empID +1
             }
+        default:
+            return state
     }
 }
